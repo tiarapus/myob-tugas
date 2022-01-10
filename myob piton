@@ -1,0 +1,89 @@
+it_name = []
+item_id = []
+jumle = []
+name_sup = []
+sup_id = []
+date_sup = []
+adre_sup = []
+beli = []
+jumla = []
+price = []
+sup_inv = []
+name_cus = []
+cus_id = []
+date_cus = []
+adre_cus = []
+beli_cus = []
+jumla_cus = []
+price_cus = []
+
+
+print("=====WELCOME======")
+
+print("1. Inventory")
+print("2. Purchase")
+print("3. Sales")
+
+pil = (input("What do you want to do? (1/2/3/4) : "))
+
+
+if pil == '1':
+    i = 0
+    jum = int(input("Count item data : "))
+    for i in range(jum):
+        i_name = input("Item name :")
+        it_name.append(i_name)
+        i_id = input("Item ID :")
+        item_id.append(i_id)
+        jl_it = int(input("Item quantity : "))
+        jumle.append(jl_it)
+    
+
+elif pil == '2':
+    j = 0
+    jum = int(input("Count supplier data : "))
+    for j in range(jum):
+        sp_name = input("Supplier name :")
+        name_sup.append(sp_name)
+        sp_id = input("Supplier ID :")
+        sup_id.append(sp_id)
+        sp_date = input("Date :")
+        date_sup.append(sp_date)
+        sp_adre = input("Supplier Adsress : ")
+        adre_sup.append(sp_adre)
+        sp_inv = input("Supplier Invoice : ")
+        sup_inv.append(sp_inv)
+        bl_sp = input("Items : ")
+        beli.append(bl_sp)
+        jl_sp = int(input("Quantity : "))
+        jumla.append(jl_sp)
+        pr_sp = int(input("Price : "))
+        price.append(pr_sp)
+    
+
+elif pil == '3':
+    k = 0
+    jum = int(input("Count supplier data : "))
+    for k in range(jum):
+        name_cs = input("Supplier name :")
+        name_cus.append(name_cs)
+        cs_id = input("Supplier ID :")
+        cus_id.append(cs_id)
+        cs_date = input("Date :")
+        date_cus.append(cs_date)
+        cs_adre = input("Supplier Adsress : ")
+        adre_cus.append(cs_adre)
+        bl_cs = input("Items : ")
+        beli_cus.append(bl_cs)
+        jl_cs = int(input("Quantity : "))
+        jumla_cus.append(jl_cs)
+        pr_cs = int(input("Price : "))
+        price_cus.append(pr_cs)
+else:
+    print("unknown")
+
+
+
+        
+
+
