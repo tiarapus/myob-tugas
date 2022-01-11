@@ -3,6 +3,8 @@ import os
 it_name = []
 item_id = []
 jumle = []
+price_jual = []
+price_beli = []
 name_sup = []
 sup_id = []
 date_sup = []
@@ -19,79 +21,133 @@ beli_cus = []
 jumla_cus = []
 price_cus = []
 
+def goto(lineum):
+    global line
+    line = lineum 
+    
+def total_ppn(x,y,z):
+    return (x * y) + ((x * y) * z/100)
 
-print("=====WELCOME======")
+def total(a,b):
+    return a * b 
 
-print("1. Inventory")
-print("2. Purchase")
-print("3. Sales")
+def inventory():
+    print("\nINVENTORY \n")
+    i_name = input("Nama Barang  :")
+    it_name.append(i_name)
+    i_id = input("Id Barang :")
+    item_id.append(i_id)
+    jl_it = int(input("Jumlah Barang : "))
+    jumle.append(jl_it)
+    prc_brg = int(input("Harga Jual : "))
+    price_jual.append(prc_brg)
+    pr_brg = int(input("Harga Beli :"))
+    price_beli.append(pr_brg)
+    return inventory
 
-pil = (input("Selamat datang di LEZY! Pilih aksi (1/2/3/4) : "))
+def purchase():
+    print("\nPURCHASE \n")
+    sp_name = input("Nama Supplier :")
+    name_sup.append(sp_name)
+    sp_id = input("Id Supplier :")
+    sup_id.append(sp_id)
+    sp_date = input("Tanggal :")
+    date_sup.append(sp_date)
+    sp_adre = input("Alamat Supplier : ")
+    adre_sup.append(sp_adre)
+    bl_sp = input("Items : ")
+    beli.append(bl_sp)
+    jl_sp = int(input("Jumlah Barang : "))
+    jumla.append(jl_sp)
+    pr_sp = int(input("Harga Barang : "))
+    price.append(pr_sp)
+    return purchase
 
+def sales():
+    print("\nSALES \n")
+    name_cs = input("Nama Coustumer :")
+    name_cus.append(name_cs)
+    cs_id = input("Id Costumer : ")
+    cus_id.append(cs_id)
+    cs_date = input("Tanggal Order :")
+    date_cus.append(cs_date)
+    cs_adre = input("Alamat Costumer : ")
+    adre_cus.append(cs_adre)
+    bl_cs = input("Items : ")
+    beli_cus.append(bl_cs)
+    jl_cs = int(input("Jumlah Barang : "))
+    jumla_cus.append(jl_cs)
+    pr_cs = int(input("Harga Barang : "))
+    price_cus.append(pr_cs)
+    return sales
 
-if pil == '1':
-    i = 0
-    jum = int(input("Masukkan jumlah barang : "))
-    for i in range(jum):
-        print("INVENTORY")
-        i_name = input("Nama Barang  :")
-        it_name.append(i_name)
-        i_id = input("Id Barang :")
-        item_id.append(i_id)
-        jl_it = int(input("Jumlah Barang : "))
-        jumle.append(jl_it)
-        os.system('cls')
+def main():
+    print("=====WELCOME======\n")
+    print("1. Inventory")
+    print("2. Purchase")
+    print("3. Sales")
+    print("4. Report")
+    print("5. Exit")
+
+line = 1
+while True:
+    main()
+    pil = (input("\nSelamat datang di LEZY! Pilih aksi (1/2/3/4) : "))
+
+    if pil == '1':
+        i = 0
+        jum = int(input("Masukkan jumlah barang : "))
+        for i in range(jum):
+            inventory()
+            os.system('cls')
+        goto(1)
     
 
-elif pil == '2':
-    j = 0
-    jum = int(input("Masukkan Jumlah Supplier : "))
-    for j in range(jum):
-        print("PURCHASE")
-        sp_name = input("Nama Supplier :")
-        name_sup.append(sp_name)
-        sp_id = input("Id Supplier :")
-        sup_id.append(sp_id)
-        sp_date = input("Tanggal :")
-        date_sup.append(sp_date)
-        sp_adre = input("Alamat Supplier : ")
-        adre_sup.append(sp_adre)
-        sp_inv = input("Supplier Invoice : ")
-        sup_inv.append(sp_inv)
-        bl_sp = input("Items : ")
-        beli.append(bl_sp)
-        jl_sp = int(input("Jumlah Barang : "))
-        jumla.append(jl_sp)
-        pr_sp = int(input("Harga Barang : "))
-        price.append(pr_sp)
-        os.system('cls')
+    elif pil == '2':    
+        j = 0
+        jum = int(input("Masukkan Jumlah Supplier : "))
+        for j in range(jum):
+            purchase()
+            os.system('cls')
     
+    elif pil == '3':
+        k = 0
+        jum = int(input("Masukkan Jumlah Costumer : "))
+        for k in range(jum):
+            sales()
+            os.system('cls')
 
-elif pil == '3':
-    k = 0
-    jum = int(input("Masukkan Jumlah Costumer : "))
-    for k in range(jum):
-        print("SALES")
-        name_cs = input("Nama Coustumer :")
-        name_cus.append(name_cs)
-        cs_id = input("Id Costumer : ")
-        cus_id.append(cs_id)
-        cs_date = input("Tanggal Order :")
-        date_cus.append(cs_date)
-        cs_adre = input("Alamat Costumer : ")
-        adre_cus.append(cs_adre)
-        bl_cs = input("Items : ")
-        beli_cus.append(bl_cs)
-        jl_cs = int(input("Jumlah Barang : "))
-        jumla_cus.append(jl_cs)
-        pr_cs = int(input("Harga Barang : "))
-        price_cus.append(pr_cs)
-        os.system('cls')
-else:
-    print("unknown")
+    elif pil == '4':
+        print("\nREPORT\n")
+        print("1. List Barang")
+        print("2. Hutang Perusahaan")
+        print("3. Piutang Perusahaan")
+        print("4. Aset Perusahaan")
+        cuz = input("Pilih Aksi : ")
+        if cuz == '1':
+            print("""
+            --------------------------------------------------------------
+            |   Item   |   Kuantitas   |   Harga Jual   |   Harga Beli   | 
+            --------------------------------------------------------------
+            """)
+            for x in range(jum):
+                item = str(it_name[x])
+                id_brg = str(item_id[x])
+                jml = str(jumle[x])
+                hj = str(price_jual[x])
+                hb = str(price_beli[x])
+                print('| ' + item + (15-len(item))*' '
+                + '| ' + id_brg + (15-len(id_brg))*' '
+                + '| ' + jml + (15-len(jml))*' '
+                + '| ' + hj + (15-len(hj))*' '
+                + '| ' + hb + (15-len(hb))*' ' + '|')
+            print(""" 
+            --------------------------------------------------------------
+            """)
+        if cuz == '2':
+          print("\nHutang Perusahaan\n")  
 
-
-
-        
-
-
+    elif pil == '5':
+        exit("Thank you!")
+    else:
+        print("unknown")
